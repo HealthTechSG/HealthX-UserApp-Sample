@@ -105,18 +105,16 @@ Edit the environment variables as follows:
 ```plaintext
 # file: env/.env.development.sample
 
-VITE_APP_TITLE='User App (Development)'
+VITE_APP_TITLE='User App (Development)'            # To be replaced with your app title
+VITE_BASE_URL="/apps"                              # To be replace with your app base URL, can be any string in development mode
+VITE_APP_ID='BFC6D607-FC54-4503-9C83-47B745A7AE97' # To be replaced with your app ID, can be any string in development mode
+VITE_API_BASE_URL='https://api.healthx.sg/fhir/r5' # To be replaced with your FHIR server base URL, different versions are supported (e.g. r4b, r5, hsar, ccdp)
 
-# Base URL for the application
-VITE_BASE_URL='/apps'
-
-# App ID and API endpoint
-VITE_APP_ID=''              # Replace with your app ID
-VITE_API_BASE_URL='https://api.healthx.sg/fhir/r5' # Replace with your FHIRNexus API URL (e.g., r4b, r5, hsar, ccdp)
-
-# Required for local development access to FHIRNexus APIs
-VITE_API_TENANT_ID=''       # Replace with your tenant ID
-VITE_API_KEY=''             # Replace with your API key
+# ==============================================================================
+# Required for local development to access FHIRNexus APIs
+# ==============================================================================
+VITE_API_TENANT_ID='d9b51b421b064255b690ba8a4c2c6e42'   # To be replaced with your tenant ID
+VITE_API_KEY='NflbXplaii5DZGDAuuczL1ZwE1H6kFuYahRFHMQ5' # To be replaced with your API key
 ```
 
 **Note**: `VITE_API_TENANT_ID` and `VITE_API_KEY` are essential for local development because localhost cannot access cookies set for the `.healthx.sg` domain. In production mode, after deployment, the app can access cookies post-authentication, allowing it to function without these variables explicitly set.
@@ -126,14 +124,10 @@ VITE_API_KEY=''             # Replace with your API key
 ```plaintext
 # file: env/.env.production.sample
 
-VITE_APP_TITLE='User App (Production)'
-
-# Base URL for the application
-VITE_BASE_URL='/apps'
-
-# App ID and API endpoint
-VITE_APP_ID=''              # Replace with your app ID
-VITE_API_BASE_URL='https://api.healthx.sg/fhir/r5' # Replace with your FHIRNexus API URL
+VITE_APP_TITLE='User App'                          # To be replaced with your app title
+VITE_BASE_URL="/apps"                              # To be replace with your app base URL, can only be "/apps" to deploy on User Apps platform
+VITE_APP_ID='BFC6D607-FC54-4503-9C83-47B745A7AE97' # To be replaced with your app ID
+VITE_API_BASE_URL='https://api.healthx.sg/fhir/r5' # To be replaced with your FHIR server base URL, different versions are supported (e.g. r4b, r5, hsar, ccdp)
 ```
 
 Ensure you replace placeholder values with your actual app ID, tenant ID, and API key.
