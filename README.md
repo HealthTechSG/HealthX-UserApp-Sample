@@ -34,7 +34,9 @@ If your project meets the following criteria, this template is for you:
 
 To quickly try out the sample app, use the following CodeSandbox link:
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github.com/HealthTechSG/HealthX-UserApp-Sample)
+[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/HealthTechSG/HealthX-UserApp-Sample)
+
+> **Note** - Make a copy of the .env.developement.sample (Prepopulated with test variables) file and rename it to .env.development.local to run the app in CodeSandbox.
 
 ---
 
