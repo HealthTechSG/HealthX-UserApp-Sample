@@ -34,7 +34,7 @@ If your project meets the following criteria, this template is for you:
 
 To quickly try out the sample app, use the following CodeSandbox link:
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/HealthTechSG/HealthX-UserApp-Sample/codesandbox)
+[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/HealthTechSG/HealthX-UserApp-Sample)
 
 > **Note** - To make changes in the demo, login to CodeSandbox and make a new branch.
 
