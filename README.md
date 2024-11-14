@@ -24,9 +24,8 @@ These technologies provide a robust and scalable foundation for developing provi
 
 If your project meets the following criteria, this template is for you:
 
-- Provider-facing app
-- FHIR-API backend (FHIRNexus)
-- Deployment planned on the AWS-HXIS User Apps Platform
+- Planning to use APIs provided by HealthX
+- Deploymenting on the HealthX User Apps Platform
 
 ---
 
