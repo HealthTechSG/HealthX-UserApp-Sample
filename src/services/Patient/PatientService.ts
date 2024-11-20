@@ -89,9 +89,19 @@ export const PatientApi = createApi({
       providesTags: (_result, _error, id) => [{ type: 'Patient', id }],
     }),
 
+    createPatient: builder.mutation<Patient, Patient>({
+      queryFn: (request) =>
+        client.createResource<Patient, FhirPatient, Patient>({
+          body: request,
+          mapReqFn: PatientMapperUtil.mapToFhirPatient,
+          mapResFn: PatientMapperUtil.mapFromFhirPatient,
+        }),
+      invalidatesTags: [{ type: 'Patient' }],
+    }),
+
     //* Create -----------------------------------------------------------------
     // The Create Patient is done in a transaction bundle, to create the references together.
-    createPatient: builder.mutation<Patient, CreatePatientRequest>({
+    createPatientBundle: builder.mutation<Patient, CreatePatientRequest>({
       queryFn: (request) =>
         client.postBundleRequest<CreatePatientRequest, Patient>({
           body: request,
@@ -428,6 +438,7 @@ export const PatientApi = createApi({
 //* Export ---------------------------------------------------------------------
 export const {
   useCreatePatientAllergyMutation,
+  useCreatePatientBundleMutation,
   useCreatePatientImmunizationMutation,
   useCreatePatientMutation,
   useCreatePatientNextOfKinMutation,

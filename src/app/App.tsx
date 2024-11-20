@@ -75,7 +75,8 @@ const App = () => {
         });
       }
     };
-    initCognito();
+
+    if (!import.meta.env.DEV) initCognito();
   }, []);
 
   if (!import.meta.env.DEV && cognito.status === 'loading') {

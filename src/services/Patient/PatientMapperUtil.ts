@@ -18,6 +18,7 @@ import type {
 import { isEmpty, get } from 'lodash-es';
 
 import { DateUtils } from '@/common/utils';
+import { PatientLabels } from '@/features/Patient/constants';
 
 /**
  * Util functions for mapping FHIR patient type to the UI type that we use.
@@ -53,6 +54,13 @@ const FhirPatientMapperUtil = {
       email:
         fhirPatient.telecom?.find((telecom) => telecom.system === 'email')
           ?.value || '',
+      contactList: fhirPatient.contact?.map((contact) => ({
+        name: contact.name?.text || '',
+        relationship: contact.relationship?.[0].coding?.[0].display || '',
+        contactNumber:
+          contact.telecom?.find((telecom) => telecom.system === 'phone')
+            ?.value || '',
+      })),
     }) as Patient,
 
   //* --------------------------------------------------------------------------
@@ -91,6 +99,30 @@ const FhirPatientMapperUtil = {
           : []),
         ...(patient.email ? [{ system: 'email', value: patient.email }] : []),
       ],
+      ...(patient.contactList?.length && {
+        contact: patient.contactList?.map((contact) => ({
+          relationship: [
+            {
+              coding: [
+                {
+                  system: 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                  code: contact.relationship,
+                  display:
+                    PatientLabels.options.relationship[
+                      contact.relationship as keyof typeof PatientLabels.options.relationship
+                    ],
+                },
+              ],
+            },
+          ],
+          name: {
+            text: contact.name,
+          },
+          telecom: [
+            { system: 'phone', value: contact.contactNumber, use: 'mobile' },
+          ],
+        })),
+      }),
     }) as FhirPatient,
 
   //* --------------------------------------------------------------------------

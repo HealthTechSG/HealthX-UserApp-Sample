@@ -4,10 +4,7 @@ import { useParams, generatePath } from 'react-router';
 
 import PatientProfileTabContent from './PatientProfileTabContent';
 import { PatientSummaryCard } from './PatientSummary';
-import { PatientAllergyTabContent } from '../PatientAllergy';
-import { PatientImmunizationTabContent } from '../PatientImmunization';
-import { PatientNextOfKinTabContent } from '../PatientNextOfKin';
-import { PatientRemarksTabContent } from '../PatientRemarks';
+import PatientContactTabContent from '../PatientContact/PatientContactTabContent';
 import { BasePage, BaseTabbedCard } from '@/common/components';
 import { BreadcrumbItem } from '@/common/types';
 import { RouteMap } from '@/configs/navigation';
@@ -53,30 +50,10 @@ const PatientDetailTabbedPage: React.FC<PatientDetailTabbedPageProps> = ({
       href: generatePath(PatientPaths.PatientDetail, { id: patientId }),
     },
     {
-      key: 'allergy' as TabKey,
-      title: 'Allergy',
-      content: <PatientAllergyTabContent />,
-      href: generatePath(PatientPaths.PatientAllergyList, { id: patientId }),
-    },
-    {
-      key: 'nextOfKin' as TabKey,
-      title: 'Next of Kin',
-      content: <PatientNextOfKinTabContent />,
-      href: generatePath(PatientPaths.PatientNextOfKinList, { id: patientId }),
-    },
-    {
-      key: 'immunization' as TabKey,
-      title: 'Immunization',
-      content: <PatientImmunizationTabContent />,
-      href: generatePath(PatientPaths.PatientImmunizationList, {
-        id: patientId,
-      }),
-    },
-    {
-      key: 'remarks' as TabKey,
-      title: 'Remarks',
-      content: <PatientRemarksTabContent />,
-      href: generatePath(PatientPaths.PatientRemarksList, { id: patientId }),
+      key: 'contact' as TabKey,
+      title: 'Contact',
+      content: <PatientContactTabContent />,
+      href: generatePath(PatientPaths.PatientDetail, { id: patientId }),
     },
   ];
 

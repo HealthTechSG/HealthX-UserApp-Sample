@@ -13,6 +13,11 @@ export type Patient = {
   idNumber: string;
   contactNumber: string;
   email: string;
+  contactList: {
+    name: string;
+    relationship: string;
+    contactNumber: string;
+  }[];
 };
 
 export type PatientAllergy = {

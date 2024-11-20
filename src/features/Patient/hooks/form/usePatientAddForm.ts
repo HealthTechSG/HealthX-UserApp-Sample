@@ -1,36 +1,26 @@
-import dayjs from 'dayjs';
-import { isEmpty } from 'lodash-es';
+// import dayjs from 'dayjs';
+// import { isEmpty } from 'lodash-es';
 import { useState } from 'react';
 
 import { useCreatePatientMutation } from '@/services/Patient/PatientService';
-import type { CreatePatientRequest } from '@/services/Patient/PatientTypes';
+// import type { CreatePatientRequest } from '@/services/Patient/PatientTypes';
 
 //* Hook -----------------------------------------------------------------------
 const usePatientAddForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const [createPatientBundle] = useCreatePatientMutation();
+  // const [createPatientBundle] = useCreatePatientMutation();
+  const [createPatientResource] = useCreatePatientMutation();
 
   //* Handle Submit ------------------------------------------------------------
   const handleSubmit = async (values: any) => {
     setIsLoading(true);
 
-    // Pre-process data
-    const request: CreatePatientRequest = {
-      patient: {
-        ...values,
-        active: !values?.isInactive,
-      },
-      allergies: values?.allergyList?.map((allergy: any) => ({
-        ...allergy,
-        recordedDate: dayjs(),
-      })),
-      nextOfKins: values?.nextOfKinList,
-      remarks: isEmpty(values?.remarks) ? [] : [{ remarks: values?.remarks }],
-    };
-
     // Trigger mutation
-    const { data, error } = await createPatientBundle(request);
+    const { data, error } = await createPatientResource({
+      ...values,
+      active: !values?.isInactive,
+    });
 
     setIsLoading(false);
 

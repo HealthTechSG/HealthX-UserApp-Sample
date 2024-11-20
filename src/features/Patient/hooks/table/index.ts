@@ -3,3 +3,4 @@ export { default as usePatientImmunizationTable } from './usePatientImmunization
 export { default as usePatientNextOfKinTable } from './usePatientNextOfKinTable';
 export { default as usePatientRemarksTable } from './usePatientRemarksTable';
 export { default as usePatientTable } from './usePatientTable';
+export { default as usePatientContactTable } from './usePatientContactTable';

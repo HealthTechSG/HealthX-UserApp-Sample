@@ -1,11 +1,9 @@
 import { Card, Flex, Form } from 'antd';
 import React, { useState } from 'react';
 
-import AllergyCollapseContent from './AllergyCollapseContent';
-import NextOfKinCollapseContent from './NextOfKinCollapseContent';
+import ContactCollapseContent from './ContactCollapseContent';
 import PatientAddSuccessModal from './PatientAddSuccessModal';
 import PatientParticularsFormBody from './PatientParticularsFormBody';
-import RemarksCollapseContent from './RemarksCollapseContent';
 import {
   BasePage,
   CancelButton,
@@ -43,8 +41,6 @@ const PatientAddPage: React.FC = () => {
       });
   };
 
-  // TODO: Add a confirmation modal before cancel (if form is dirty)
-
   //* JSX ----------------------------------------------------------------------
   return (
     <BasePage>
@@ -65,16 +61,8 @@ const PatientAddPage: React.FC = () => {
             <PatientParticularsFormBody />
           </Card>
 
-          <SingleItemCollapse defaultOpen title="Allergy & Intolerance">
-            <AllergyCollapseContent />
-          </SingleItemCollapse>
-
-          <SingleItemCollapse defaultOpen title="Next of Kin">
-            <NextOfKinCollapseContent />
-          </SingleItemCollapse>
-
-          <SingleItemCollapse defaultOpen title="Remarks">
-            <RemarksCollapseContent />
+          <SingleItemCollapse defaultOpen title="Contacts">
+            <ContactCollapseContent />
           </SingleItemCollapse>
 
           <Card size="small">
