@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
 
   const redirectTologin = () => {
     const appId = getAppIdFromUrl();
-    window.location.href = `https://userapps.healthx.sg/login/${appId}?redirect=${encodeURIComponent(window.location.origin)}/apps/${appId}`;
+    window.location.href = `${import.meta.env.VITE_LOGIN_BASE_URL}/${appId}?redirect=${encodeURIComponent(window.location.origin)}/apps/${appId}`;
   };
 
   // Ignore authentication in development as we don't have a cognito setup.

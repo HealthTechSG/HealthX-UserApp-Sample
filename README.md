@@ -109,7 +109,7 @@ Edit the environment variables as follows:
 VITE_APP_TITLE='User App (Development)'            # To be replaced with your app title
 VITE_BASE_URL="/apps"                              # To be replace with your app base URL, can be any string in development mode
 VITE_APP_ID='BFC6D607-FC54-4503-9C83-47B745A7AE97' # To be replaced with your app ID, can be any string in development mode
-VITE_API_BASE_URL='https://api.healthx.sg/fhir/r5' # To be replaced with your FHIR server base URL, different versions are supported (e.g. r4b, r5, hsar, ccdp)
+VITE_API_FHIR_BASE_URL='https://api.healthx.sg/fhir/r5' # To be replaced with your FHIR server base URL, different versions are supported (e.g. r4b, r5, hsar, ccdp)
 
 # ==============================================================================
 # Required for local development to access FHIRNexus APIs
@@ -125,10 +125,11 @@ VITE_API_KEY='NflbXplaii5DZGDAuuczL1ZwE1H6kFuYahRFHMQ5' # To be replaced with yo
 ```plaintext
 # file: env/.env.production.sample
 
-VITE_APP_TITLE='User App'                          # To be replaced with your app title
-VITE_BASE_URL="/apps"                              # To be replace with your app base URL, can only be "/apps" to deploy on User Apps platform
-VITE_APP_ID='BFC6D607-FC54-4503-9C83-47B745A7AE97' # To be replaced with your app ID
-VITE_API_BASE_URL='https://api.healthx.sg/fhir/r5' # To be replaced with your FHIR server base URL, different versions are supported (e.g. r4b, r5, hsar, ccdp)
+VITE_APP_TITLE='User App'                                # To be replaced with your app title
+VITE_APP_ID=''                                           # To be replaced with your app ID
+VITE_API_FHIR_BASE_URL='https://api.healthx.sg/fhir/r4b' # To be replaced with your FHIR server base URL, different versions are supported (e.g. r4b, r5, hsar, ccdp)
+VITE_API_BASE_URL='https://api.healthx.sg'               # To be replaced with your userapp server base URL
+VITE_LOGIN_BASE_URL='https://userapps.healthx.sg/login'  # To be replaced with your login server base URL
 ```
 
 Ensure you replace placeholder values with your actual app ID, tenant ID, and API key.

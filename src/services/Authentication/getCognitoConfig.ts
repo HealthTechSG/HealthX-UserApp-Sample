@@ -1,7 +1,7 @@
 export const getCognitoConfig = async (appId: string) => {
   try {
     const response = await fetch(
-      `https://api.healthx.sg/devportal/cognito/userpool/${appId}`,
+      `${import.meta.env.VITE_API_BASE_URL}/devportal/cognito/userpool/${appId}`,
     );
     if (!response.ok) {
       throw new Error('Failed to fetch Cognito configuration');

@@ -4,7 +4,7 @@ const UrlUtils = {
   getBaseUrl: () =>
     `${import.meta.env.VITE_BASE_URL}/${import.meta.env.VITE_APP_ID}`,
   getApiUrl: () =>
-    `${import.meta.env.VITE_API_BASE_URL}/${ApiUtils.getTenantId()}`,
+    `${import.meta.env.VITE_API_FHIR_BASE_URL}/${ApiUtils.getTenantId()}`,
 
   /**
    * When using React-Router to generatePath, it will not include the BASE_URL.

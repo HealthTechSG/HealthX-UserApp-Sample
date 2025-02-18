@@ -17,7 +17,17 @@ const requiredSchema = {
     return val;
   }, z.string().min(1)),
 
-  VITE_API_BASE_URL: z.string().min(1),
+  VITE_API_FHIR_BASE_URL: z.string().min(1),
+
+  VITE_LOGIN_BASE_URL: z.preprocess((val) => {
+    if (process.env.NODE_ENV === 'production') return val;
+    return 'REDACTED';
+  }, z.string().min(1)),
+
+  VITE_API_BASE_URL: z.preprocess((val) => {
+    if (process.env.NODE_ENV === 'production') return val;
+    return 'REDACTED';
+  }, z.string().min(1)),
 
   VITE_APP_ID: z.string().min(1),
 
